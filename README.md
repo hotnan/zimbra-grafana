@@ -109,6 +109,15 @@ Sample /etc/telegraf.d/zimbra.conf with inputs for Zimbra Processes, Zimbra Scri
     interval = "1s"
 ```
 
+### giving permission to telegraf process
+
+```
+sudo chgrp -R telegraf /opt/zimbra/data/postfix/spool/{active,hold,incoming,deferred,maildrop}
+sudo chmod -R g+rXs /opt/zimbra/data/postfix/spool/{active,hold,incoming,deferred,maildrop}
+sudo usermod -a -G postdrop telegraf
+sudo chmod g+r /opt/zimbra/data/postfix/spool/maildrop
+```
+
 * Download the grafana-zimbra-collaboration-dashboard.json JSON file and import it into your Grafana
 * Change your data inside the Grafana if needed and enjoy :)
 
