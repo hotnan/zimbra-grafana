@@ -95,8 +95,12 @@ Sample /etc/telegraf.d/zimbra.conf with inputs for Zimbra Processes, Zimbra Scri
   data_type = "string"
 
 # # OpenLDAP cn=Monitor plugin
-# # As zimbra user run the next to obatin the password zmlocalconfig -s zimbra_ldap_password ldap_master_url
- [[inputs.openldap]]
+# # As zimbra user run the next to obatin the password
+
+# # run this command with zimbra user 
+# # zmlocalconfig -s zimbra_ldap_password ldap_master_url
+
+[[inputs.openldap]]
    host = "YOURZIMBRASERVERHOSTNAME"
    port = 389
    insecure_skip_verify = true
